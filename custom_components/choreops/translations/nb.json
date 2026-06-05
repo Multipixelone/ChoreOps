@@ -81,13 +81,15 @@
               "name": "Navn",
               "ha_user_id": "Hjemmeassistentbruker",
               "dashboard_language": "Språk",
-              "mobile_notify_service": "Varsler"
+              "mobile_notify_service": "Varsler",
+              "notif_click_url": "URL for varseltrykk"
             },
             "data_description": {
               "name": "Unikt navn for denne brukerprofilen.",
               "ha_user_id": "Valgfritt: Koble denne profilen til en Home Assistant-bruker. Hvis kioskmodus er deaktivert, er krav på og innløsning av delte enheter avhengig av denne lenken.",
               "dashboard_language": "Språk som brukes for innhold og varsler på dashbordet.",
-              "mobile_notify_service": "Velg varslingstjeneste eller la feltet stå tomt for å deaktivere varsler."
+              "mobile_notify_service": "Velg varslingstjeneste eller la feltet stå tomt for å deaktivere varsler.",
+              "notif_click_url": "Valgfri URL som skal åpnes når et varsel trykkes på. La stå tomt for standardvirkemåte."
             }
           },
           "section_system_usage": {
@@ -110,12 +112,14 @@
             "data": {
               "can_approve": "Kan godkjenne",
               "can_manage": "Kan klare",
-              "associated_user_ids": "Tilknyttede brukere"
+              "associated_user_ids": "Tilknyttede brukere",
+              "notif_approve_click_url": "Trykk på URL-adressen for godkjenningsvarsel"
             },
             "data_description": {
               "can_approve": "Tillater godkjennings- og avvisningshandlinger.",
               "can_manage": "Tillater administrasjonshandlinger som krever utvidede tillatelser.",
-              "associated_user_ids": "Brukere som denne godkjenneren/administratoren fører tilsyn med for godkjenningshandlinger."
+              "associated_user_ids": "Brukere som denne godkjenneren/administratoren fører tilsyn med for godkjenningshandlinger.",
+              "notif_approve_click_url": "Valgfri URL for godkjenningsvarsler. Overstyrer den generelle URL-en for trykk på varsler ved godkjenning av gjøremål eller belønninger."
             }
           }
         }
@@ -483,6 +487,8 @@
       "invalid_reward_count": "Ugyldig belønningstall",
       "invalid_reward_name": "Ugyldig belønningsnavn",
       "invalid_reward_cost": "Belønningskostnaden må være null eller større med opptil to desimaler",
+      "invalid_reward_assigned_users": "Én eller flere tilordnede brukere er ikke gyldige",
+      "mixed_reward_assignment_sentinel": "Kan ikke blande «alle brukere» med bestemte brukere",
       "invalid_bonus": "Ugyldig bonus",
       "invalid_bonus_count": "Ugyldig bonusantall",
       "invalid_bonus_name": "Ugyldig bonusnavn",
@@ -569,13 +575,15 @@
               "name": "Navn",
               "ha_user_id": "Hjemmeassistentbruker",
               "dashboard_language": "Språk",
-              "mobile_notify_service": "Varsler"
+              "mobile_notify_service": "Varsler",
+              "notif_click_url": "URL for varseltrykk"
             },
             "data_description": {
               "name": "Unikt navn for denne brukerprofilen.",
               "ha_user_id": "Valgfritt: Koble denne profilen til en Home Assistant-bruker. Hvis kioskmodus er deaktivert, er krav på og innløsning av delte enheter avhengig av denne lenken.",
               "dashboard_language": "Språk som brukes for innhold og varsler på dashbordet.",
-              "mobile_notify_service": "Velg varslingstjeneste eller la feltet stå tomt for å deaktivere varsler."
+              "mobile_notify_service": "Velg varslingstjeneste eller la feltet stå tomt for å deaktivere varsler.",
+              "notif_click_url": "Valgfri URL som skal åpnes når et varsel trykkes på. La stå tomt for standardvirkemåte."
             }
           },
           "section_system_usage": {
@@ -598,12 +606,14 @@
             "data": {
               "can_approve": "Kan godkjenne",
               "can_manage": "Kan klare",
-              "associated_user_ids": "Tilknyttede brukere"
+              "associated_user_ids": "Tilknyttede brukere",
+              "notif_approve_click_url": "Trykk på URL-adressen for godkjenningsvarsel"
             },
             "data_description": {
               "can_approve": "Tillater godkjennings- og avvisningshandlinger.",
               "can_manage": "Tillater administrasjonshandlinger som krever utvidede tillatelser.",
-              "associated_user_ids": "Brukere som denne godkjenneren/administratoren fører tilsyn med for godkjenningshandlinger."
+              "associated_user_ids": "Brukere som denne godkjenneren/administratoren fører tilsyn med for godkjenningshandlinger.",
+              "notif_approve_click_url": "Valgfri URL for godkjenningsvarsler. Overstyrer den generelle URL-en for trykk på varsler ved godkjenning av gjøremål eller belønninger."
             }
           }
         }
@@ -926,7 +936,8 @@
           "cost": "Belønningskostnad",
           "description": "Beskrivelse (valgfritt)",
           "reward_labels": "Belønningsetiketter",
-          "icon": "Ikon (mdi:xxx)"
+          "icon": "Ikon (mdi:xxx)",
+          "assigned_user_ids": "Tildelt til"
         }
       },
       "add_penalty": {
@@ -1000,13 +1011,15 @@
               "name": "Navn",
               "ha_user_id": "Hjemmeassistentbruker",
               "dashboard_language": "Språk",
-              "mobile_notify_service": "Varsler"
+              "mobile_notify_service": "Varsler",
+              "notif_click_url": "URL for varseltrykk"
             },
             "data_description": {
               "name": "Unikt navn for denne brukerprofilen.",
               "ha_user_id": "Valgfritt: Koble denne profilen til en Home Assistant-bruker. Hvis kioskmodus er deaktivert, er krav på og innløsning av delte enheter avhengig av denne lenken.",
               "dashboard_language": "Språk som brukes for innhold og varsler på dashbordet.",
-              "mobile_notify_service": "Velg varslingstjeneste eller la feltet stå tomt for å deaktivere varsler."
+              "mobile_notify_service": "Velg varslingstjeneste eller la feltet stå tomt for å deaktivere varsler.",
+              "notif_click_url": "Valgfri URL som skal åpnes når et varsel trykkes på. La stå tomt for standardvirkemåte."
             }
           },
           "section_system_usage": {
@@ -1029,12 +1042,14 @@
             "data": {
               "can_approve": "Kan godkjenne",
               "can_manage": "Kan klare",
-              "associated_user_ids": "Tilknyttede brukere"
+              "associated_user_ids": "Tilknyttede brukere",
+              "notif_approve_click_url": "Trykk på URL-adressen for godkjenningsvarsel"
             },
             "data_description": {
               "can_approve": "Tillater godkjennings- og avvisningshandlinger.",
               "can_manage": "Tillater administrasjonshandlinger som krever utvidede tillatelser.",
-              "associated_user_ids": "Brukere som denne godkjenneren/administratoren fører tilsyn med for godkjenningshandlinger."
+              "associated_user_ids": "Brukere som denne godkjenneren/administratoren fører tilsyn med for godkjenningshandlinger.",
+              "notif_approve_click_url": "Valgfri URL for godkjenningsvarsler. Overstyrer den generelle URL-en for trykk på varsler ved godkjenning av gjøremål eller belønninger."
             }
           }
         }
@@ -1385,7 +1400,8 @@
           "cost": "Belønningskostnad",
           "description": "Beskrivelse (valgfritt)",
           "reward_labels": "Belønningsetiketter",
-          "icon": "Ikon (mdi:xxx)"
+          "icon": "Ikon (mdi:xxx)",
+          "assigned_user_ids": "Tildelt til"
         }
       },
       "edit_penalty": {
@@ -1633,6 +1649,7 @@
         "title": "Generelle alternativer",
         "description": "Administrer generelle innstillinger for ChoreOps-integrasjonen.\n\n ℹ️ [Finn ut mer om generelle alternativer]({documentation_url})",
         "data": {
+          "dashboard_points_precision": "Presisjon på dashbordpoeng",
           "default_chore_points": "Standardpoeng per gjøremål",
           "points_adjust_values": "Verdier for manuell punktjusteringsknapp",
           "update_interval": "Oppdateringsintervall",
@@ -1649,6 +1666,7 @@
           "backup_action_selection": "Sikkerhetskopieringshandlinger"
         },
         "data_description": {
+          "dashboard_points_precision": "Velg hvordan poeng vises på tvers av støttede dashbord. Dette endrer bare formateringen av dashbordet og endrer ikke lagrede punktverdier eller beregninger.",
           "default_chore_points": "Standard poengverdi brukt for nye gjøremål når egendefinerte poeng ikke er spesifisert.",
           "points_adjust_values": "Liste over verdier for knappene for manuell punktjustering. Hver verdi atskilt med '|'.",
           "update_interval": "Intervall i minutter for oppdatering av den interne tilstanden til ChoreOps.",
@@ -1946,6 +1964,14 @@
         "delete_backup": "🗑️ Slett en sikkerhetskopi",
         "restore_backup": "🔄 Gjenopprett fra sikkerhetskopi",
         "return_to_menu": "↩️ Gå tilbake til hovedmenyen"
+      }
+    },
+    "dashboard_points_precision": {
+      "options": {
+        "fixed_0": "Kun hele tall",
+        "adaptive": "Adaptiv (vis desimaler bare når det er nødvendig)",
+        "fixed_1": "Alltid 1 desimal",
+        "fixed_2": "Alltid 2 desimaler"
       }
     },
     "select_backup_to_delete": {
@@ -2461,6 +2487,11 @@
           "name": "Etiketter",
           "description": "Etiketter for gruppering av belønninger.",
           "example": "['helg', 'spesiell']"
+        },
+        "assigned_user_names": {
+          "name": "Tildelt til",
+          "description": "Brukervisningsnavn tilordnet denne belønningen. Bruk [\"*\"] for alle brukere. Send en tom liste for å ikke tilordne til noen brukere.",
+          "example": "['Zoë', 'Max!']"
         }
       }
     },
@@ -2507,6 +2538,11 @@
           "name": "Etiketter",
           "description": "Oppdaterte etiketter.",
           "example": "['premium', 'spesial']"
+        },
+        "assigned_user_names": {
+          "name": "Tildelt til",
+          "description": "Brukervisningsnavn tilordnet denne belønningen. Bruk [\"*\"] for alle brukere. Send en tom liste for å fjerne alle tilordnede brukere. Unnlat å la gjeldende tildelinger være uendret.",
+          "example": "['Zoë', 'Max!']"
         }
       }
     },
@@ -2557,7 +2593,7 @@
         },
         "assigned_user_names": {
           "name": "Tildelt til",
-          "description": "Liste over navn på tilordnede som denne oppgaven skal tilordnes til.",
+          "description": "Liste over navn på tildelere som denne oppgaven skal tildeles. Bruk [\"*\"] for alle tildelbare brukere. Send en tom liste for å opprette uten tildelere.",
           "example": "['Emma', 'Jack']"
         },
         "points": {
@@ -2663,7 +2699,7 @@
         },
         "assigned_user_names": {
           "name": "Tildelt til",
-          "description": "Ny liste over navn på tilordnede som skal tilordnes denne oppgaven.",
+          "description": "Ny liste over navn på tilordnede som denne oppgaven skal tilordnes til. Bruk [\"*\"] for alle tilordnede brukere. Send en tom liste for å fjerne alle tilordnede brukere. Unnlat å la gjeldende tilordninger være uendret.",
           "example": "['Emma', 'Jack']"
         },
         "points": {
@@ -2735,6 +2771,11 @@
           "name": "Forskyvning av påminnelse",
           "description": "Ny forskyvning for forfallspåminnelse. Varighet før forfallsdato for å sende påminnelsesvarsel. Format: '30m', '1t', '1d 6t 30m' osv. Bruk '0' for å deaktivere.",
           "example": "30m"
+        },
+        "assignment_action": {
+          "name": "Tildelingshandling",
+          "description": "Slik håndterer du listen over tildelte_brukernavn. 'erstatt' angir listen direkte (standard, bakoverkompatibel). 'legg til' legger til de oppførte brukerne i eksisterende tildelte. 'fjern' fjerner de oppførte brukerne fra eksisterende tildelte.",
+          "example": "legge til"
         }
       }
     },
@@ -3096,6 +3137,11 @@
           "name": "Hopp over ikke-gjentakende gjøremål",
           "description": "Aktiver dette for å la engangsoppgaver være uendret i stedet for å flytte forfallsdatoen til grensen.",
           "example": "falsk"
+        },
+        "allow_long_recurrences": {
+          "name": "Tillat lange gjentakelser",
+          "description": "Tillat omplanlegging av månedlige, kvartalsvise, årlige og andre gjentakelser med lang intervall. Standardinnstillingen er usann for å forhindre utilsiktede store hopp.",
+          "example": "ekte"
         }
       }
     },
@@ -4740,8 +4786,14 @@
           "core_sensors": {
             "name": "Kjernesensorer"
           },
+          "dashboard_config": {
+            "name": "Dashbordkonfigurasjon"
+          },
           "dashboard_helpers": {
             "name": "Dashbordhjelpere"
+          },
+          "shard_runtime": {
+            "name": "Kjøretid for gjøremålsliste"
           },
           "chores_by_label": {
             "name": "Gjøremål etter etikett"
@@ -4751,6 +4803,29 @@
           },
           "language": {
             "name": "Språk"
+          }
+        }
+      },
+      "assignee_dashboard_chore_list_helper_sensor": {
+        "name": "Liste over gjøremål i brukergrensesnitt-dashbordet {shard_index}",
+        "state_attributes": {
+          "purpose": {
+            "name": "Hensikt",
+            "state": {
+              "purpose_dashboard_chore_shard_helper": "Gir én gjøremålsliste for visning på dashbordet når en brukers fullstendige gjøremålsliste er for stor for hovedhjelperen."
+            }
+          },
+          "chores": {
+            "name": "Gjøremål"
+          },
+          "shard_index": {
+            "name": "Nummer på gjøremålsliste"
+          },
+          "shard_count": {
+            "name": "Totalt antall gjøremålslister"
+          },
+          "helper_contract_version": {
+            "name": "Hjelpekontraktversjon"
           }
         }
       }

@@ -81,13 +81,15 @@
               "name": "Nom",
               "ha_user_id": "Usuari de l'Assistent de la Llar",
               "dashboard_language": "Llengua",
-              "mobile_notify_service": "Notificacions"
+              "mobile_notify_service": "Notificacions",
+              "notif_click_url": "URL de toc de notificació"
             },
             "data_description": {
               "name": "Nom únic per a aquest perfil d'usuari.",
               "ha_user_id": "Opcional: Enllaça aquest perfil a un usuari de Home Assistant. Si el mode quiosc està desactivat, les accions de reclamació i bescanvi de dispositius compartits depenen d'aquest enllaç.",
               "dashboard_language": "Idioma utilitzat per al contingut i les notificacions del tauler de control.",
-              "mobile_notify_service": "Seleccioneu el servei de notificacions o deixeu-ho en blanc per desactivar les notificacions."
+              "mobile_notify_service": "Seleccioneu el servei de notificacions o deixeu-ho en blanc per desactivar les notificacions.",
+              "notif_click_url": "URL opcional per obrir quan es toca la notificació. Deixeu-ho en blanc per al comportament predeterminat."
             }
           },
           "section_system_usage": {
@@ -110,12 +112,14 @@
             "data": {
               "can_approve": "Pot aprovar",
               "can_manage": "Pot gestionar",
-              "associated_user_ids": "Usuaris associats"
+              "associated_user_ids": "Usuaris associats",
+              "notif_approve_click_url": "URL de notificació d'aprovació"
             },
             "data_description": {
               "can_approve": "Permet accions d'aprovació i desaprovació.",
               "can_manage": "Permet accions de gestió que requereixen permisos elevats.",
-              "associated_user_ids": "Usuaris que aquest aprovador/administrador supervisa per a les accions d'aprovació."
+              "associated_user_ids": "Usuaris que aquest aprovador/administrador supervisa per a les accions d'aprovació.",
+              "notif_approve_click_url": "URL opcional per a les notificacions d'aprovació. Substitueix l'URL general de notificació quan s'aproven tasques o recompenses."
             }
           }
         }
@@ -483,6 +487,8 @@
       "invalid_reward_count": "Recompte de recompenses no vàlid",
       "invalid_reward_name": "Nom de recompensa no vàlid",
       "invalid_reward_cost": "El cost de la recompensa ha de ser zero o superior amb un màxim de 2 decimals",
+      "invalid_reward_assigned_users": "Un o més usuaris assignats no són vàlids",
+      "mixed_reward_assignment_sentinel": "No es poden barrejar \"tots els usuaris\" amb usuaris específics",
       "invalid_bonus": "Bonificació no vàlida",
       "invalid_bonus_count": "Recompte de bonificacions no vàlid",
       "invalid_bonus_name": "Nom de bonificació no vàlid",
@@ -569,13 +575,15 @@
               "name": "Nom",
               "ha_user_id": "Usuari de l'Assistent de la Llar",
               "dashboard_language": "Llengua",
-              "mobile_notify_service": "Notificacions"
+              "mobile_notify_service": "Notificacions",
+              "notif_click_url": "URL de toc de notificació"
             },
             "data_description": {
               "name": "Nom únic per a aquest perfil d'usuari.",
               "ha_user_id": "Opcional: Enllaça aquest perfil a un usuari de Home Assistant. Si el mode quiosc està desactivat, les accions de reclamació i bescanvi de dispositius compartits depenen d'aquest enllaç.",
               "dashboard_language": "Idioma utilitzat per al contingut i les notificacions del tauler de control.",
-              "mobile_notify_service": "Seleccioneu el servei de notificacions o deixeu-ho en blanc per desactivar les notificacions."
+              "mobile_notify_service": "Seleccioneu el servei de notificacions o deixeu-ho en blanc per desactivar les notificacions.",
+              "notif_click_url": "URL opcional per obrir quan es toca la notificació. Deixeu-ho en blanc per al comportament predeterminat."
             }
           },
           "section_system_usage": {
@@ -598,12 +606,14 @@
             "data": {
               "can_approve": "Pot aprovar",
               "can_manage": "Pot gestionar",
-              "associated_user_ids": "Usuaris associats"
+              "associated_user_ids": "Usuaris associats",
+              "notif_approve_click_url": "URL de notificació d'aprovació"
             },
             "data_description": {
               "can_approve": "Permet accions d'aprovació i desaprovació.",
               "can_manage": "Permet accions de gestió que requereixen permisos elevats.",
-              "associated_user_ids": "Usuaris que aquest aprovador/administrador supervisa per a les accions d'aprovació."
+              "associated_user_ids": "Usuaris que aquest aprovador/administrador supervisa per a les accions d'aprovació.",
+              "notif_approve_click_url": "URL opcional per a les notificacions d'aprovació. Substitueix l'URL general de notificació quan s'aproven tasques o recompenses."
             }
           }
         }
@@ -926,7 +936,8 @@
           "cost": "Cost de la recompensa",
           "description": "Descripció (opcional)",
           "reward_labels": "Etiquetes de recompensa",
-          "icon": "Icona (mdi:xxx)"
+          "icon": "Icona (mdi:xxx)",
+          "assigned_user_ids": "Assignat a"
         }
       },
       "add_penalty": {
@@ -1000,13 +1011,15 @@
               "name": "Nom",
               "ha_user_id": "Usuari de l'Assistent de la Llar",
               "dashboard_language": "Llengua",
-              "mobile_notify_service": "Notificacions"
+              "mobile_notify_service": "Notificacions",
+              "notif_click_url": "URL de toc de notificació"
             },
             "data_description": {
               "name": "Nom únic per a aquest perfil d'usuari.",
               "ha_user_id": "Opcional: Enllaça aquest perfil a un usuari de Home Assistant. Si el mode quiosc està desactivat, les accions de reclamació i bescanvi de dispositius compartits depenen d'aquest enllaç.",
               "dashboard_language": "Idioma utilitzat per al contingut i les notificacions del tauler de control.",
-              "mobile_notify_service": "Seleccioneu el servei de notificacions o deixeu-ho en blanc per desactivar les notificacions."
+              "mobile_notify_service": "Seleccioneu el servei de notificacions o deixeu-ho en blanc per desactivar les notificacions.",
+              "notif_click_url": "URL opcional per obrir quan es toca la notificació. Deixeu-ho en blanc per al comportament predeterminat."
             }
           },
           "section_system_usage": {
@@ -1029,12 +1042,14 @@
             "data": {
               "can_approve": "Pot aprovar",
               "can_manage": "Pot gestionar",
-              "associated_user_ids": "Usuaris associats"
+              "associated_user_ids": "Usuaris associats",
+              "notif_approve_click_url": "URL de notificació d'aprovació"
             },
             "data_description": {
               "can_approve": "Permet accions d'aprovació i desaprovació.",
               "can_manage": "Permet accions de gestió que requereixen permisos elevats.",
-              "associated_user_ids": "Usuaris que aquest aprovador/administrador supervisa per a les accions d'aprovació."
+              "associated_user_ids": "Usuaris que aquest aprovador/administrador supervisa per a les accions d'aprovació.",
+              "notif_approve_click_url": "URL opcional per a les notificacions d'aprovació. Substitueix l'URL general de notificació quan s'aproven tasques o recompenses."
             }
           }
         }
@@ -1385,7 +1400,8 @@
           "cost": "Cost de la recompensa",
           "description": "Descripció (opcional)",
           "reward_labels": "Etiquetes de recompensa",
-          "icon": "Icona (mdi:xxx)"
+          "icon": "Icona (mdi:xxx)",
+          "assigned_user_ids": "Assignat a"
         }
       },
       "edit_penalty": {
@@ -1633,6 +1649,7 @@
         "title": "Opcions generals",
         "description": "Gestiona la configuració general per a la integració de ChoreOps.\n\n ℹ️ [Més informació sobre les opcions generals]({documentation_url})",
         "data": {
+          "dashboard_points_precision": "Precisió dels punts del tauler de control",
           "default_chore_points": "Punts per defecte per tasca",
           "points_adjust_values": "Valors del botó d'ajust manual de punts",
           "update_interval": "Interval d'actualització",
@@ -1649,6 +1666,7 @@
           "backup_action_selection": "Accions de còpia de seguretat"
         },
         "data_description": {
+          "dashboard_points_precision": "Trieu com es mostren els punts als taulers de control compatibles. Això només canvia el format del tauler de control i no canvia els valors ni els càlculs dels punts emmagatzemats.",
           "default_chore_points": "El valor de punts per defecte s'utilitza per a les tasques noves quan no s'especifiquen punts personalitzats.",
           "points_adjust_values": "Llista de valors per als botons d'ajust manual de punts. Cada valor està separat per '|'.",
           "update_interval": "Interval en minuts per actualitzar l'estat intern de ChoreOps.",
@@ -1946,6 +1964,14 @@
         "delete_backup": "🗑️ Suprimeix una còpia de seguretat",
         "restore_backup": "🔄 Restaurar des d'una còpia de seguretat",
         "return_to_menu": "↩️ Torna al menú principal"
+      }
+    },
+    "dashboard_points_precision": {
+      "options": {
+        "fixed_0": "Només nombres enters",
+        "adaptive": "Adaptatiu (mostra els decimals només quan cal)",
+        "fixed_1": "Sempre 1 decimal",
+        "fixed_2": "Sempre 2 decimals"
       }
     },
     "select_backup_to_delete": {
@@ -2461,6 +2487,11 @@
           "name": "Etiquetes",
           "description": "Etiquetes per agrupar recompenses.",
           "example": "['cap de setmana', 'especial']"
+        },
+        "assigned_user_names": {
+          "name": "Assignat a",
+          "description": "Noms de visualització dels usuaris assignats a aquesta recompensa. Feu servir [\"*\"] per a tots els usuaris. Passeu una llista buida per assignar-la a cap usuari.",
+          "example": "['Zoë', 'Max!']"
         }
       }
     },
@@ -2507,6 +2538,11 @@
           "name": "Etiquetes",
           "description": "Etiquetes actualitzades.",
           "example": "['premium', 'especial']"
+        },
+        "assigned_user_names": {
+          "name": "Assignat a",
+          "description": "Noms de visualització dels usuaris assignats a aquesta recompensa. Feu servir [\"*\"] per a tots els usuaris. Passeu una llista buida per eliminar tots els usuaris assignats. Ometeu-ho per deixar les assignacions actuals sense canvis.",
+          "example": "['Zoë', 'Max!']"
         }
       }
     },
@@ -2557,7 +2593,7 @@
         },
         "assigned_user_names": {
           "name": "Assignat a",
-          "description": "Llista de noms de persones a qui assignar aquesta tasca.",
+          "description": "Llista de noms de persones a qui assignar aquesta tasca. Utilitzeu [\"*\"] per a tots els usuaris assignables. Passeu una llista buida per crear sense persones assignades.",
           "example": "['Emma', 'Jack']"
         },
         "points": {
@@ -2663,7 +2699,7 @@
         },
         "assigned_user_names": {
           "name": "Assignat a",
-          "description": "Nova llista de noms de persones a qui assignar aquesta tasca.",
+          "description": "Nova llista de noms de persones assignables a aquesta tasca. Utilitzeu [\"*\"] per a tots els usuaris assignables. Passeu una llista buida per eliminar tots els usuaris assignats. Ometeu-ho per deixar les assignacions actuals sense canvis.",
           "example": "['Emma', 'Jack']"
         },
         "points": {
@@ -2735,6 +2771,11 @@
           "name": "Compensació de recordatori de venciment",
           "description": "Nou desplaçament del recordatori de venciment. Durada abans de la data de venciment per enviar la notificació de recordatori. Format: '30m', '1h', '1d 6h 30m', etc. Utilitzeu '0' per desactivar-lo.",
           "example": "30 m"
+        },
+        "assignment_action": {
+          "name": "Acció d'assignació",
+          "description": "Com gestionar la llista assigned_user_names. 'replace' estableix la llista directament (per defecte, compatible amb versions anteriors). 'add' afegeix els usuaris llistats als assignats existents. 'remove' elimina els usuaris llistats dels assignats existents.",
+          "example": "afegeix"
         }
       }
     },
@@ -3096,6 +3137,11 @@
           "name": "Omet les tasques no recurrents",
           "description": "Activeu això per deixar les tasques no recurrents sense canvis en comptes de moure la seva data de venciment al límit.",
           "example": "fals"
+        },
+        "allow_long_recurrences": {
+          "name": "Permetre recurrències llargues",
+          "description": "Permet la reprogramació de recurrències mensuals, trimestrals, anuals i altres recurrències d'interval llarg. El valor per defecte és fals per evitar salts grans accidentals.",
+          "example": "cert"
         }
       }
     },
@@ -4740,8 +4786,14 @@
           "core_sensors": {
             "name": "Sensors centrals"
           },
+          "dashboard_config": {
+            "name": "Configuració del tauler de control"
+          },
           "dashboard_helpers": {
             "name": "Ajudants del tauler de control"
+          },
+          "shard_runtime": {
+            "name": "Temps d'execució de la llista de tasques"
           },
           "chores_by_label": {
             "name": "Tasques per segell discogràfic"
@@ -4751,6 +4803,29 @@
           },
           "language": {
             "name": "Llengua"
+          }
+        }
+      },
+      "assignee_dashboard_chore_list_helper_sensor": {
+        "name": "Llista de tasques del tauler de control de la interfície d'usuari {shard_index}",
+        "state_attributes": {
+          "purpose": {
+            "name": "Propòsit",
+            "state": {
+              "purpose_dashboard_chore_shard_helper": "Proporciona una llista de tasques per a la visualització del tauler de control quan la llista completa de tasques d'un usuari és massa gran per a l'ajudant principal."
+            }
+          },
+          "chores": {
+            "name": "Tasques domèstiques"
+          },
+          "shard_index": {
+            "name": "Número de llista de tasques"
+          },
+          "shard_count": {
+            "name": "Llistes totals de tasques"
+          },
+          "helper_contract_version": {
+            "name": "Versió del contracte d'ajuda"
           }
         }
       }

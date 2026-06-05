@@ -81,13 +81,15 @@
               "name": "Meno",
               "ha_user_id": "Používateľ domáceho asistenta",
               "dashboard_language": "Jazyk",
-              "mobile_notify_service": "Upozornenia"
+              "mobile_notify_service": "Upozornenia",
+              "notif_click_url": "URL adresa klepnutia na upozornenie"
             },
             "data_description": {
               "name": "Jedinečný názov pre tento používateľský profil.",
               "ha_user_id": "Voliteľné: Prepojte tento profil s používateľom služby Home Assistant. Ak je režim kiosku vypnutý, akcie nárokovania a uplatnenia na zdieľanom zariadení sa spoliehajú na toto prepojenie.",
               "dashboard_language": "Jazyk používaný pre obsah a upozornenia ovládacieho panela.",
-              "mobile_notify_service": "Vyberte službu upozornení alebo nechajte pole prázdne, ak chcete upozornenia vypnúť."
+              "mobile_notify_service": "Vyberte službu upozornení alebo nechajte pole prázdne, ak chcete upozornenia vypnúť.",
+              "notif_click_url": "Voliteľná URL adresa, ktorá sa otvorí po klepnutí na upozornenie. Pre predvolené správanie ponechajte pole prázdne."
             }
           },
           "section_system_usage": {
@@ -110,12 +112,14 @@
             "data": {
               "can_approve": "Môže schváliť",
               "can_manage": "Dokáže zvládnuť",
-              "associated_user_ids": "Priradení používatelia"
+              "associated_user_ids": "Priradení používatelia",
+              "notif_approve_click_url": "URL adresa klepnutím na oznámenie o schválení"
             },
             "data_description": {
               "can_approve": "Umožňuje akcie schválenia a zamietnutia.",
               "can_manage": "Umožňuje akcie správy, ktoré vyžadujú zvýšené povolenia.",
-              "associated_user_ids": "Používatelia, ktorých tento schvaľovateľ/správca dohliada na schvaľovacie akcie."
+              "associated_user_ids": "Používatelia, ktorých tento schvaľovateľ/správca dohliada na schvaľovacie akcie.",
+              "notif_approve_click_url": "Voliteľná URL adresa pre oznámenia o schválení. Prepíše všeobecnú URL adresu oznámenia pri schvaľovaní domácich úloh alebo odmien."
             }
           }
         }
@@ -483,6 +487,8 @@
       "invalid_reward_count": "Neplatný počet odmien",
       "invalid_reward_name": "Neplatný názov odmeny",
       "invalid_reward_cost": "Cena odmeny musí byť nula alebo vyššia s presnosťou na maximálne 2 desatinné miesta.",
+      "invalid_reward_assigned_users": "Jeden alebo viac priradených používateľov nie je platných",
+      "mixed_reward_assignment_sentinel": "Nemožno kombinovať „všetkých používateľov“ s konkrétnymi používateľmi",
       "invalid_bonus": "Neplatný bonus",
       "invalid_bonus_count": "Neplatný počet bonusov",
       "invalid_bonus_name": "Neplatný názov bonusu",
@@ -569,13 +575,15 @@
               "name": "Meno",
               "ha_user_id": "Používateľ domáceho asistenta",
               "dashboard_language": "Jazyk",
-              "mobile_notify_service": "Upozornenia"
+              "mobile_notify_service": "Upozornenia",
+              "notif_click_url": "URL adresa klepnutia na upozornenie"
             },
             "data_description": {
               "name": "Jedinečný názov pre tento používateľský profil.",
               "ha_user_id": "Voliteľné: Prepojte tento profil s používateľom služby Home Assistant. Ak je režim kiosku vypnutý, akcie nárokovania a uplatnenia na zdieľanom zariadení sa spoliehajú na toto prepojenie.",
               "dashboard_language": "Jazyk používaný pre obsah a upozornenia ovládacieho panela.",
-              "mobile_notify_service": "Vyberte službu upozornení alebo nechajte pole prázdne, ak chcete upozornenia vypnúť."
+              "mobile_notify_service": "Vyberte službu upozornení alebo nechajte pole prázdne, ak chcete upozornenia vypnúť.",
+              "notif_click_url": "Voliteľná URL adresa, ktorá sa otvorí po klepnutí na upozornenie. Pre predvolené správanie ponechajte pole prázdne."
             }
           },
           "section_system_usage": {
@@ -598,12 +606,14 @@
             "data": {
               "can_approve": "Môže schváliť",
               "can_manage": "Dokáže zvládnuť",
-              "associated_user_ids": "Priradení používatelia"
+              "associated_user_ids": "Priradení používatelia",
+              "notif_approve_click_url": "URL adresa klepnutím na oznámenie o schválení"
             },
             "data_description": {
               "can_approve": "Umožňuje akcie schválenia a zamietnutia.",
               "can_manage": "Umožňuje akcie správy, ktoré vyžadujú zvýšené povolenia.",
-              "associated_user_ids": "Používatelia, ktorých tento schvaľovateľ/správca dohliada na schvaľovacie akcie."
+              "associated_user_ids": "Používatelia, ktorých tento schvaľovateľ/správca dohliada na schvaľovacie akcie.",
+              "notif_approve_click_url": "Voliteľná URL adresa pre oznámenia o schválení. Prepíše všeobecnú URL adresu oznámenia pri schvaľovaní domácich úloh alebo odmien."
             }
           }
         }
@@ -926,7 +936,8 @@
           "cost": "Cena odmeny",
           "description": "Popis (voliteľné)",
           "reward_labels": "Štítky odmien",
-          "icon": "Ikona (mdi:xxx)"
+          "icon": "Ikona (mdi:xxx)",
+          "assigned_user_ids": "Pridelené komu"
         }
       },
       "add_penalty": {
@@ -1000,13 +1011,15 @@
               "name": "Meno",
               "ha_user_id": "Používateľ domáceho asistenta",
               "dashboard_language": "Jazyk",
-              "mobile_notify_service": "Upozornenia"
+              "mobile_notify_service": "Upozornenia",
+              "notif_click_url": "URL adresa klepnutia na upozornenie"
             },
             "data_description": {
               "name": "Jedinečný názov pre tento používateľský profil.",
               "ha_user_id": "Voliteľné: Prepojte tento profil s používateľom služby Home Assistant. Ak je režim kiosku vypnutý, akcie nárokovania a uplatnenia na zdieľanom zariadení sa spoliehajú na toto prepojenie.",
               "dashboard_language": "Jazyk používaný pre obsah a upozornenia ovládacieho panela.",
-              "mobile_notify_service": "Vyberte službu upozornení alebo nechajte pole prázdne, ak chcete upozornenia vypnúť."
+              "mobile_notify_service": "Vyberte službu upozornení alebo nechajte pole prázdne, ak chcete upozornenia vypnúť.",
+              "notif_click_url": "Voliteľná URL adresa, ktorá sa otvorí po klepnutí na upozornenie. Pre predvolené správanie ponechajte pole prázdne."
             }
           },
           "section_system_usage": {
@@ -1029,12 +1042,14 @@
             "data": {
               "can_approve": "Môže schváliť",
               "can_manage": "Dokáže zvládnuť",
-              "associated_user_ids": "Pridružení používatelia"
+              "associated_user_ids": "Pridružení používatelia",
+              "notif_approve_click_url": "URL adresa klepnutím na oznámenie o schválení"
             },
             "data_description": {
               "can_approve": "Umožňuje akcie schválenia a zamietnutia.",
               "can_manage": "Umožňuje akcie správy, ktoré vyžadujú zvýšené povolenia.",
-              "associated_user_ids": "Používatelia, ktorých tento schvaľovateľ/správca dohliada na schvaľovacie akcie."
+              "associated_user_ids": "Používatelia, ktorých tento schvaľovateľ/správca dohliada na schvaľovacie akcie.",
+              "notif_approve_click_url": "Voliteľná URL adresa pre oznámenia o schválení. Prepíše všeobecnú URL adresu oznámenia pri schvaľovaní domácich úloh alebo odmien."
             }
           }
         }
@@ -1385,7 +1400,8 @@
           "cost": "Cena odmeny",
           "description": "Popis (voliteľné)",
           "reward_labels": "Štítky odmien",
-          "icon": "Ikona (mdi:xxx)"
+          "icon": "Ikona (mdi:xxx)",
+          "assigned_user_ids": "Pridelené komu"
         }
       },
       "edit_penalty": {
@@ -1633,6 +1649,7 @@
         "title": "Všeobecné možnosti",
         "description": "Spravujte všeobecné nastavenia pre integráciu ChoreOps.\n\n ℹ️ [Získajte viac informácií o všeobecných možnostiach]({documentation_url})",
         "data": {
+          "dashboard_points_precision": "Presnosť bodov na palubnej doske",
           "default_chore_points": "Predvolené body za domácu úlohu",
           "points_adjust_values": "Hodnoty tlačidla manuálneho nastavenia bodov",
           "update_interval": "Interval aktualizácie",
@@ -1649,6 +1666,7 @@
           "backup_action_selection": "Zálohovacie akcie"
         },
         "data_description": {
+          "dashboard_points_precision": "Vyberte spôsob zobrazenia bodov na podporovaných paneloch. Toto zmení iba formátovanie panela a nezmení uložené hodnoty bodov ani výpočty.",
           "default_chore_points": "Predvolená hodnota bodov použitá pre nové úlohy, keď nie sú zadané vlastné body.",
           "points_adjust_values": "Zoznam hodnôt pre tlačidlá manuálneho nastavenia bodov. Každá hodnota je oddelená znakom „|“.",
           "update_interval": "Interval v minútach pre aktualizáciu interného stavu ChoreOps.",
@@ -1946,6 +1964,14 @@
         "delete_backup": "🗑️ Odstrániť zálohu",
         "restore_backup": "🔄 Obnoviť zo zálohy",
         "return_to_menu": "↩️ Späť do hlavnej ponuky"
+      }
+    },
+    "dashboard_points_precision": {
+      "options": {
+        "fixed_0": "Iba celé čísla",
+        "adaptive": "Adaptívne (zobrazovať desatinné miesta iba v prípade potreby)",
+        "fixed_1": "Vždy 1 desatinné miesto",
+        "fixed_2": "Vždy na 2 desatinné miesta"
       }
     },
     "select_backup_to_delete": {
@@ -2461,6 +2487,11 @@
           "name": "Štítky",
           "description": "Štítky na zoskupovanie odmien.",
           "example": "[„víkend“, „špeciál“]"
+        },
+        "assigned_user_names": {
+          "name": "Pridelené komu",
+          "description": "Zobrazované mená používateľov priradené k tejto odmene. Pre všetkých používateľov použite [*]. Ak chcete odmenu nepriradiť žiadnym používateľom, zadajte prázdny zoznam.",
+          "example": "[„Zoë“, „Max!“]"
         }
       }
     },
@@ -2507,6 +2538,11 @@
           "name": "Štítky",
           "description": "Aktualizované štítky.",
           "example": "[„prémiový“, „špeciálny“]"
+        },
+        "assigned_user_names": {
+          "name": "Pridelené komu",
+          "description": "Zobrazované mená používateľov priradené k tejto odmene. Pre všetkých používateľov použite [*]. Pre odstránenie všetkých priradených používateľov zadajte prázdny zoznam. Vynechajte, ak chcete, aby aktuálne priradenia zostali nezmenené.",
+          "example": "[„Zoë“, „Max!“]"
         }
       }
     },
@@ -2557,7 +2593,7 @@
         },
         "assigned_user_names": {
           "name": "Pridelené komu",
-          "description": "Zoznam mien osôb, ktorým sa má táto úloha priradiť.",
+          "description": "Zoznam mien priradených osôb, ktorým sa má táto úloha priradiť. Pre všetkých priraditeľných používateľov použite [\"*\"]. Pre vytvorenie bez priradených osôb zadajte prázdny zoznam.",
           "example": "[„Emma“, „Jack“]"
         },
         "points": {
@@ -2663,7 +2699,7 @@
         },
         "assigned_user_names": {
           "name": "Pridelené komu",
-          "description": "Nový zoznam mien poverených osôb, ktorým sa má táto úloha priradiť.",
+          "description": "Nový zoznam mien priradených osôb, ktorým sa má táto úloha priradiť. Pre všetkých priraditeľných používateľov použite znak [\"*\"]. Pre odstránenie všetkých priradených používateľov zadajte prázdny zoznam. Vynechajte, ak chcete aktuálne priradenia ponechať nezmenené.",
           "example": "[„Emma“, „Jack“]"
         },
         "points": {
@@ -2735,6 +2771,11 @@
           "name": "Posunutie pripomienky splatnosti",
           "description": "Nový posun pripomienky termínu. Čas pred dátumom termínu na odoslanie upozornenia na pripomienku. Formát: „30 min“, „1 h“, „1 deň 6 h 30 min“ atď. Na vypnutie použite „0“.",
           "example": "30 metrov"
+        },
+        "assignment_action": {
+          "name": "Akcia priradenia",
+          "description": "Ako pracovať so zoznamom assigned_user_names. „replace“ nastaví zoznam priamo (predvolené, spätne kompatibilné). „add“ pridá uvedených používateľov k existujúcim prideleným používateľom. „remove“ odstráni uvedených používateľov z existujúcich pridelených používateľov.",
+          "example": "pridať"
         }
       }
     },
@@ -3096,6 +3137,11 @@
           "name": "Preskočiť neopakujúce sa domáce práce",
           "description": "Povoľte túto možnosť, ak chcete, aby sa jednorazové úlohy nezmenili namiesto presunutia ich termínu na hranicu.",
           "example": "nepravdivé"
+        },
+        "allow_long_recurrences": {
+          "name": "Povoliť dlhé opakovania",
+          "description": "Povoliť zmenu plánovania mesačných, štvrťročných, ročných a iných dlhodobých opakovaní. Predvolená hodnota je false, aby sa predišlo náhodným veľkým skokom.",
+          "example": "pravda"
         }
       }
     },
@@ -4740,8 +4786,14 @@
           "core_sensors": {
             "name": "Základné senzory"
           },
+          "dashboard_config": {
+            "name": "Konfigurácia ovládacieho panela"
+          },
           "dashboard_helpers": {
             "name": "Pomocníci pre dashboard"
+          },
+          "shard_runtime": {
+            "name": "Zoznam úloh v režime runtime"
           },
           "chores_by_label": {
             "name": "Domáce práce podľa vydavateľstva"
@@ -4751,6 +4803,29 @@
           },
           "language": {
             "name": "Jazyk"
+          }
+        }
+      },
+      "assignee_dashboard_chore_list_helper_sensor": {
+        "name": "Zoznam úloh na ovládacom paneli používateľského rozhrania {shard_index}",
+        "state_attributes": {
+          "purpose": {
+            "name": "Účel",
+            "state": {
+              "purpose_dashboard_chore_shard_helper": "Poskytuje jeden zoznam úloh pre zobrazenie na ovládacom paneli, keď je celý zoznam úloh používateľa príliš veľký pre hlavného pomocníka."
+            }
+          },
+          "chores": {
+            "name": "Domáce práce"
+          },
+          "shard_index": {
+            "name": "Číslo zoznamu úloh"
+          },
+          "shard_count": {
+            "name": "Celkový zoznam domácich úloh"
+          },
+          "helper_contract_version": {
+            "name": "Verzia zmluvy pre pomocníkov"
           }
         }
       }

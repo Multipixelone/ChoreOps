@@ -81,13 +81,15 @@
               "name": "Nome",
               "ha_user_id": "Utilizador do Home Assistant",
               "dashboard_language": "Idioma",
-              "mobile_notify_service": "Notificações"
+              "mobile_notify_service": "Notificações",
+              "notif_click_url": "URL de notificação"
             },
             "data_description": {
               "name": "Nome único para este perfil de utilizador.",
               "ha_user_id": "Opcional: ligue este perfil a um utilizador do Home Assistant. Se o modo quiosque estiver desativado, as ações de reclamação e resgate de dispositivos partilhados dependerão desta ligação.",
               "dashboard_language": "Idioma utilizado para o conteúdo do painel de controlo e notificações.",
-              "mobile_notify_service": "Selecione o serviço de notificação ou deixe em branco para desativar as notificações."
+              "mobile_notify_service": "Selecione o serviço de notificação ou deixe em branco para desativar as notificações.",
+              "notif_click_url": "URL opcional a abrir ao tocar na notificação. Deixe em branco para o comportamento padrão."
             }
           },
           "section_system_usage": {
@@ -110,12 +112,14 @@
             "data": {
               "can_approve": "Pode aprovar",
               "can_manage": "Consigo lidar com isso",
-              "associated_user_ids": "Utilizadores associados"
+              "associated_user_ids": "Utilizadores associados",
+              "notif_approve_click_url": "URL de notificação de aprovação"
             },
             "data_description": {
               "can_approve": "Permite ações de aprovação e reprovação.",
               "can_manage": "Permite ações de gestão que exigem permissões elevadas.",
-              "associated_user_ids": "Utilizadores que este aprovador/administrador supervisiona para ações de aprovação."
+              "associated_user_ids": "Utilizadores que este aprovador/administrador supervisiona para ações de aprovação.",
+              "notif_approve_click_url": "URL opcional para notificações de aprovação. Substitui o URL de notificação geral ao aprovar tarefas ou recompensas."
             }
           }
         }
@@ -483,6 +487,8 @@
       "invalid_reward_count": "Contagem de recompensas inválida",
       "invalid_reward_name": "Nome de recompensa inválido",
       "invalid_reward_cost": "O custo da recompensa deve ser zero ou superior, com até duas casas decimais.",
+      "invalid_reward_assigned_users": "Um ou mais utilizadores atribuídos não são válidos.",
+      "mixed_reward_assignment_sentinel": "Não é possível misturar 'todos os utilizadores' com utilizadores específicos.",
       "invalid_bonus": "Bónus inválido",
       "invalid_bonus_count": "Contagem de bónus inválida",
       "invalid_bonus_name": "Nome de bónus inválido",
@@ -569,13 +575,15 @@
               "name": "Nome",
               "ha_user_id": "Utilizador do Home Assistant",
               "dashboard_language": "Idioma",
-              "mobile_notify_service": "Notificações"
+              "mobile_notify_service": "Notificações",
+              "notif_click_url": "URL de notificação"
             },
             "data_description": {
               "name": "Nome único para este perfil de utilizador.",
               "ha_user_id": "Opcional: ligue este perfil a um utilizador do Home Assistant. Se o modo quiosque estiver desativado, as ações de reclamação e resgate de dispositivos partilhados dependerão desta ligação.",
               "dashboard_language": "Idioma utilizado para o conteúdo do painel de controlo e notificações.",
-              "mobile_notify_service": "Selecione o serviço de notificação ou deixe em branco para desativar as notificações."
+              "mobile_notify_service": "Selecione o serviço de notificação ou deixe em branco para desativar as notificações.",
+              "notif_click_url": "URL opcional a abrir ao tocar na notificação. Deixe em branco para o comportamento padrão."
             }
           },
           "section_system_usage": {
@@ -598,12 +606,14 @@
             "data": {
               "can_approve": "Pode aprovar",
               "can_manage": "Consigo lidar com isso",
-              "associated_user_ids": "Utilizadores associados"
+              "associated_user_ids": "Utilizadores associados",
+              "notif_approve_click_url": "URL de notificação de aprovação"
             },
             "data_description": {
               "can_approve": "Permite ações de aprovação e reprovação.",
               "can_manage": "Permite ações de gestão que exigem permissões elevadas.",
-              "associated_user_ids": "Utilizadores que este aprovador/administrador supervisiona para ações de aprovação."
+              "associated_user_ids": "Utilizadores que este aprovador/administrador supervisiona para ações de aprovação.",
+              "notif_approve_click_url": "URL opcional para notificações de aprovação. Substitui o URL de notificação geral ao aprovar tarefas ou recompensas."
             }
           }
         }
@@ -926,7 +936,8 @@
           "cost": "Custo da recompensa",
           "description": "Descrição (opcional)",
           "reward_labels": "Etiquetas de recompensa",
-          "icon": "Ícone (mdi:xxx)"
+          "icon": "Ícone (mdi:xxx)",
+          "assigned_user_ids": "Designado para"
         }
       },
       "add_penalty": {
@@ -1000,13 +1011,15 @@
               "name": "Nome",
               "ha_user_id": "Utilizador do Home Assistant",
               "dashboard_language": "Idioma",
-              "mobile_notify_service": "Notificações"
+              "mobile_notify_service": "Notificações",
+              "notif_click_url": "URL de notificação"
             },
             "data_description": {
               "name": "Nome único para este perfil de utilizador.",
               "ha_user_id": "Opcional: ligue este perfil a um utilizador do Home Assistant. Se o modo quiosque estiver desativado, as ações de reclamação e resgate de dispositivos partilhados dependerão desta ligação.",
               "dashboard_language": "Idioma utilizado para o conteúdo do painel de controlo e notificações.",
-              "mobile_notify_service": "Selecione o serviço de notificação ou deixe em branco para desativar as notificações."
+              "mobile_notify_service": "Selecione o serviço de notificação ou deixe em branco para desativar as notificações.",
+              "notif_click_url": "URL opcional a abrir ao tocar na notificação. Deixe em branco para o comportamento padrão."
             }
           },
           "section_system_usage": {
@@ -1029,12 +1042,14 @@
             "data": {
               "can_approve": "Pode aprovar",
               "can_manage": "Consigo lidar com isso",
-              "associated_user_ids": "Utilizadores associados"
+              "associated_user_ids": "Utilizadores associados",
+              "notif_approve_click_url": "URL de notificação de aprovação"
             },
             "data_description": {
               "can_approve": "Permite ações de aprovação e reprovação.",
               "can_manage": "Permite ações de gestão que exigem permissões elevadas.",
-              "associated_user_ids": "Utilizadores que este aprovador/administrador supervisiona para ações de aprovação."
+              "associated_user_ids": "Utilizadores que este aprovador/administrador supervisiona para ações de aprovação.",
+              "notif_approve_click_url": "URL opcional para notificações de aprovação. Substitui o URL de notificação geral ao aprovar tarefas ou recompensas."
             }
           }
         }
@@ -1385,7 +1400,8 @@
           "cost": "Custo da recompensa",
           "description": "Descrição (opcional)",
           "reward_labels": "Etiquetas de recompensa",
-          "icon": "Ícone (mdi:xxx)"
+          "icon": "Ícone (mdi:xxx)",
+          "assigned_user_ids": "Designado para"
         }
       },
       "edit_penalty": {
@@ -1633,6 +1649,7 @@
         "title": "Opções gerais",
         "description": "Faça a gestão das configurações gerais da integração com o ChoreOps.\n\n ℹ️ [Saiba mais sobre as Opções Gerais]({documentation_url})",
         "data": {
+          "dashboard_points_precision": "Precisão dos pontos do painel de controlo",
           "default_chore_points": "Pontos padrão por tarefa",
           "points_adjust_values": "Valores do botão de regulação manual dos pontos",
           "update_interval": "Intervalo de atualização",
@@ -1649,6 +1666,7 @@
           "backup_action_selection": "Ações de backup"
         },
         "data_description": {
+          "dashboard_points_precision": "Escolha como os pontos serão apresentados nos painéis compatíveis. Isto altera apenas a formatação do painel e não modifica os valores ou os cálculos dos pontos armazenados.",
           "default_chore_points": "Valor de pontos padrão utilizado para novas tarefas quando não são especificados pontos personalizados.",
           "points_adjust_values": "Lista de valores para os botões de ajuste manual dos pontos. Cada valor separado por '|'.",
           "update_interval": "Intervalo em minutos para atualização do estado interno do ChoreOps.",
@@ -1946,6 +1964,14 @@
         "delete_backup": "🗑️ Apagar um backup",
         "restore_backup": "🔄 Restaurar a partir do backup",
         "return_to_menu": "↩️ Voltar ao menu principal"
+      }
+    },
+    "dashboard_points_precision": {
+      "options": {
+        "fixed_0": "Apenas números inteiros",
+        "adaptive": "Adaptativo (apresenta decimais apenas quando necessário)",
+        "fixed_1": "Sempre com 1 casa decimal",
+        "fixed_2": "Sempre com 2 casas decimais."
       }
     },
     "select_backup_to_delete": {
@@ -2461,6 +2487,11 @@
           "name": "Etiquetas",
           "description": "Etiquetas para agrupar recompensas.",
           "example": "['fim de semana', 'especial']"
+        },
+        "assigned_user_names": {
+          "name": "Designado para",
+          "description": "Nomes de visualização de utilizadores atribuídos a esta recompensa. Utilize [\"*\"] para todos os utilizadores. Passe uma lista vazia para não atribuir a nenhum utilizador.",
+          "example": "['Zoë', 'Max!']"
         }
       }
     },
@@ -2507,6 +2538,11 @@
           "name": "Etiquetas",
           "description": "Etiquetas atualizadas.",
           "example": "['premium', 'especial']"
+        },
+        "assigned_user_names": {
+          "name": "Designado para",
+          "description": "Nomes de visualização de utilizadores atribuídos a esta recompensa. Utilize [\"*\"] para todos os utilizadores. Passe uma lista vazia para remover todos os utilizadores atribuídos. Omita para manter as atribuições atuais inalteradas.",
+          "example": "['Zoë', 'Max!']"
         }
       }
     },
@@ -2557,7 +2593,7 @@
         },
         "assigned_user_names": {
           "name": "Designado para",
-          "description": "Lista de nomes dos responsáveis para atribuir esta tarefa.",
+          "description": "Lista de nomes dos responsáveis para atribuir esta tarefa. Utilize [\"*\"] para todos os utilizadores atribuíveis. Passe uma lista vazia para criar uma lista sem responsáveis.",
           "example": "['Emma', 'Jack']"
         },
         "points": {
@@ -2663,7 +2699,7 @@
         },
         "assigned_user_names": {
           "name": "Designado para",
-          "description": "Nova lista de responsáveis para atribuir esta tarefa.",
+          "description": "Nova lista de nomes de responsáveis para atribuir esta tarefa. Utilize [\"*\"] para todos os utilizadores atribuíveis. Passe uma lista vazia para remover todos os utilizadores atribuídos. Omita para manter as atribuições atuais inalteradas.",
           "example": "['Emma', 'Jack']"
         },
         "points": {
@@ -2735,6 +2771,11 @@
           "name": "Compensação de lembrete de vencimento",
           "description": "Novo lembrete de vencimento. Duração antes do vencimento para enviar a notificação de lembrete. Formato: '30m', '1h', '1d 6h 30m', etc. Utilize '0' para desativar.",
           "example": "30m"
+        },
+        "assignment_action": {
+          "name": "Ação de atribuição",
+          "description": "Como manipular a lista `assigned_user_names`. 'replace' define a lista directamente (padrão, compatível com versões anteriores). ‘add’ adiciona os utilizadores listados aos responsáveis existentes. ‘remove’ remove os utilizadores listados dos responsáveis existentes.",
+          "example": "adicionar"
         }
       }
     },
@@ -3096,6 +3137,11 @@
           "name": "Ignorar tarefas não recorrentes",
           "description": "Ative esta opção para manter as tarefas não recorrentes inalteradas, em vez de mover a data de vencimento para o limite.",
           "example": "FALSO"
+        },
+        "allow_long_recurrences": {
+          "name": "Permitir recorrências longas",
+          "description": "Permitir o reagendamento de recorrências mensais, trimestrais, anuais e outras recorrências de longo intervalo. O padrão é falso para evitar grandes saltos acidentais.",
+          "example": "VERDADE"
         }
       }
     },
@@ -4740,8 +4786,14 @@
           "core_sensors": {
             "name": "Sensores principais"
           },
+          "dashboard_config": {
+            "name": "Configuração do painel de controlo"
+          },
           "dashboard_helpers": {
             "name": "Auxiliares do painel de controlo"
+          },
+          "shard_runtime": {
+            "name": "Tempo de execução da lista de tarefas"
           },
           "chores_by_label": {
             "name": "Tarefas por Etiqueta"
@@ -4751,6 +4803,29 @@
           },
           "language": {
             "name": "Idioma"
+          }
+        }
+      },
+      "assignee_dashboard_chore_list_helper_sensor": {
+        "name": "Lista de tarefas do painel de controlo da interface do utilizador {shard_index}",
+        "state_attributes": {
+          "purpose": {
+            "name": "Finalidade",
+            "state": {
+              "purpose_dashboard_chore_shard_helper": "Fornece uma lista de tarefas para apresentação no painel quando a lista completa de tarefas de um utilizador é demasiado grande para o auxiliar principal."
+            }
+          },
+          "chores": {
+            "name": "Tarefas domésticas"
+          },
+          "shard_index": {
+            "name": "Número da lista de tarefas"
+          },
+          "shard_count": {
+            "name": "Lista completa de tarefas"
+          },
+          "helper_contract_version": {
+            "name": "Versão do Contrato Auxiliar"
           }
         }
       }
