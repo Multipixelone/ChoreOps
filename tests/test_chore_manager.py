@@ -1100,6 +1100,89 @@ class TestApprovalResetExecutorLane:
         )
         assert chore_data[const.DATA_CHORE_ROTATION_CURRENT_ASSIGNEE_ID] == "assignee-2"
 
+    def test_advance_rotation_smart_weighted_selects_lowest_points(
+        self,
+        chore_manager: ChoreManager,
+        mock_coordinator: MagicMock,
+    ) -> None:
+        """weighted_points basis routes _advance_rotation to the points metric.
+
+        Counts and points are seeded to disagree: by count the next holder would
+        be assignee-2 (fewest completions), by points it is assignee-1 (fewest
+        cumulative points). With weighted_points the points winner must be chosen,
+        and the count reader must not be consulted.
+        """
+        chore_data = mock_coordinator.chores_data["chore-1"]
+        chore_data[const.DATA_CHORE_COMPLETION_CRITERIA] = (
+            const.COMPLETION_CRITERIA_ROTATION_SMART
+        )
+        chore_data[const.DATA_CHORE_ROTATION_FAIRNESS_BASIS] = (
+            const.ROTATION_FAIRNESS_BASIS_WEIGHTED_POINTS
+        )
+        chore_data[const.DATA_CHORE_ROTATION_CURRENT_ASSIGNEE_ID] = "assignee-2"
+
+        stats = mock_coordinator.statistics_manager
+        stats.get_chore_completed_counts = MagicMock(
+            return_value={"assignee-1": 5, "assignee-2": 0}
+        )
+        stats.get_total_completed_points = MagicMock(
+            return_value={"assignee-1": 0.0, "assignee-2": 100.0}
+        )
+        stats.get_chore_last_completed_timestamps = MagicMock(
+            return_value={"assignee-1": None, "assignee-2": None}
+        )
+
+        payload = chore_manager._advance_rotation(
+            "chore-1", "assignee-2", method="auto"
+        )
+
+        assert payload is not None
+        assert payload["method"] == "smart"
+        assert payload["new_assignee_id"] == "assignee-1"
+        assert chore_data[const.DATA_CHORE_ROTATION_CURRENT_ASSIGNEE_ID] == "assignee-1"
+        stats.get_total_completed_points.assert_called_once_with(
+            ["assignee-1", "assignee-2"]
+        )
+        stats.get_chore_completed_counts.assert_not_called()
+
+    def test_advance_rotation_smart_completions_basis_unchanged(
+        self,
+        chore_manager: ChoreManager,
+        mock_coordinator: MagicMock,
+    ) -> None:
+        """Absent basis defaults to completions, leaving the legacy metric in use.
+
+        With the same conflicting stats, the missing key resolves to completions,
+        so the count winner (assignee-2) is chosen and the points reader is never
+        consulted.
+        """
+        chore_data = mock_coordinator.chores_data["chore-1"]
+        chore_data[const.DATA_CHORE_COMPLETION_CRITERIA] = (
+            const.COMPLETION_CRITERIA_ROTATION_SMART
+        )
+        chore_data[const.DATA_CHORE_ROTATION_CURRENT_ASSIGNEE_ID] = "assignee-1"
+        # Intentionally no DATA_CHORE_ROTATION_FAIRNESS_BASIS key -> defaults to completions
+
+        stats = mock_coordinator.statistics_manager
+        stats.get_chore_completed_counts = MagicMock(
+            return_value={"assignee-1": 5, "assignee-2": 0}
+        )
+        stats.get_total_completed_points = MagicMock(
+            return_value={"assignee-1": 0.0, "assignee-2": 100.0}
+        )
+        stats.get_chore_last_completed_timestamps = MagicMock(
+            return_value={"assignee-1": None, "assignee-2": None}
+        )
+
+        payload = chore_manager._advance_rotation(
+            "chore-1", "assignee-1", method="auto"
+        )
+
+        assert payload is not None
+        assert payload["new_assignee_id"] == "assignee-2"
+        assert chore_data[const.DATA_CHORE_ROTATION_CURRENT_ASSIGNEE_ID] == "assignee-2"
+        stats.get_total_completed_points.assert_not_called()
+
     @pytest.mark.asyncio
     async def test_approval_shared_resets_all_assignees_and_reschedules_once(
         self,

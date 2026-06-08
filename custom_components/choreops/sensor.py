@@ -1184,6 +1184,10 @@ class AssigneeChoreStatusSensor(ChoreOpsCoordinatorEntity, SensorEntity):
                 const.DATA_CHORE_DEFAULT_POINTS, const.DEFAULT_ZERO
             ),
             const.ATTR_COMPLETION_CRITERIA: completion_criteria,
+            const.ATTR_ROTATION_FAIRNESS_BASIS: chore_info.get(
+                const.DATA_CHORE_ROTATION_FAIRNESS_BASIS,
+                const.DEFAULT_ROTATION_FAIRNESS_BASIS,
+            ),
             const.ATTR_APPROVAL_RESET_TYPE: chore_info.get(
                 const.DATA_CHORE_APPROVAL_RESET_TYPE,
                 const.DEFAULT_APPROVAL_RESET_TYPE,
@@ -2652,6 +2656,10 @@ class SystemChoreSharedStateSensor(ChoreOpsCoordinatorEntity, SensorEntity):
             const.ATTR_COMPLETION_CRITERIA: chore_info.get(
                 const.DATA_CHORE_COMPLETION_CRITERIA,
                 const.COMPLETION_CRITERIA_INDEPENDENT,
+            ),
+            const.ATTR_ROTATION_FAIRNESS_BASIS: chore_info.get(
+                const.DATA_CHORE_ROTATION_FAIRNESS_BASIS,
+                const.DEFAULT_ROTATION_FAIRNESS_BASIS,
             ),
             const.ATTR_APPROVAL_RESET_TYPE: chore_info.get(
                 const.DATA_CHORE_APPROVAL_RESET_TYPE,

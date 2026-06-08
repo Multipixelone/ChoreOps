@@ -1230,6 +1230,16 @@ create_chore:
             - "shared_first"
             - "rotation_simple"
             - "rotation_smart"
+    rotation_fairness_basis:
+      name: "Rotation Fairness Basis"
+      description: "For rotation_smart chores, the metric used to pick the next turn holder: completions (fewest completions) or weighted_points (lowest cumulative points across all chores). Ignored for other completion criteria."
+      example: "completions"
+      required: false
+      selector:
+        select:
+          options:
+            - "completions"
+            - "weighted_points"
     approval_reset_type:
       name: "Approval Reset Type"
       description: "When the chore resets for re-completion."
@@ -1448,6 +1458,16 @@ update_chore:
             - "fri"
             - "sat"
             - "sun"
+    rotation_fairness_basis:
+      name: "Rotation Fairness Basis"
+      description: "New rotation fairness basis for rotation_smart chores: completions (fewest completions) or weighted_points (lowest cumulative points across all chores). Ignored for other completion criteria."
+      example: "weighted_points"
+      required: false
+      selector:
+        select:
+          options:
+            - "completions"
+            - "weighted_points"
     approval_reset_type:
       name: "Approval Reset Type"
       description: "New approval reset type."

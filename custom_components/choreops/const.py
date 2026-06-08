@@ -655,6 +655,7 @@ CFOF_CHORES_INPUT_DESCRIPTION: Final = "chore_description"
 CFOF_CHORES_INPUT_DUE_DATE: Final = "due_date"
 CFOF_CHORES_INPUT_ICON: Final = "icon"
 CFOF_CHORES_INPUT_COMPLETION_CRITERIA: Final = "completion_criteria"
+CFOF_CHORES_INPUT_ROTATION_FAIRNESS_BASIS: Final = "rotation_fairness_basis"
 CFOF_CHORES_INPUT_LABELS: Final = "chore_labels"
 CFOF_CHORES_INPUT_NAME: Final = "name"
 CFOF_CHORES_INPUT_NOTIFY_ON_APPROVAL: Final = "notify_on_approval"
@@ -1443,6 +1444,7 @@ DATA_CHORE_ROTATION_CURRENT_ASSIGNEE_ID: Final = (
     "rotation_current_assignee_id"  # UUID of current turn holder
 )
 DATA_CHORE_ROTATION_CYCLE_OVERRIDE: Final = "rotation_cycle_override"  # Boolean: temp allow any assignee to claim (cleared on advancement)
+DATA_CHORE_ROTATION_FAIRNESS_BASIS: Final = "rotation_fairness_basis"  # rotation_smart fairness metric: completions (default) | weighted_points
 
 DATA_CHORE_PER_ASSIGNEE_DUE_DATES: Final = "per_assignee_due_dates"
 DATA_CHORE_PER_ASSIGNEE_APPLICABLE_DAYS: Final = "per_assignee_applicable_days"
@@ -1466,6 +1468,18 @@ COMPLETION_CRITERIA_OPTIONS: Final = [
     {"value": COMPLETION_CRITERIA_ROTATION_SIMPLE, "label": "rotation_simple"},
     {"value": COMPLETION_CRITERIA_ROTATION_SMART, "label": "rotation_smart"},
 ]
+
+# Rotation Smart fairness basis values
+# Determines which metric rotation_smart uses to pick the next turn holder.
+# completions = fewest completions of this chore (default, legacy behavior)
+# weighted_points = lowest cumulative all-time points across all chores (difficulty-weighted)
+ROTATION_FAIRNESS_BASIS_COMPLETIONS: Final = "completions"
+ROTATION_FAIRNESS_BASIS_WEIGHTED_POINTS: Final = "weighted_points"
+ROTATION_FAIRNESS_BASIS_OPTIONS: Final = [
+    {"value": ROTATION_FAIRNESS_BASIS_COMPLETIONS, "label": "completions"},
+    {"value": ROTATION_FAIRNESS_BASIS_WEIGHTED_POINTS, "label": "weighted_points"},
+]
+DEFAULT_ROTATION_FAIRNESS_BASIS: Final = ROTATION_FAIRNESS_BASIS_COMPLETIONS
 
 # Approval reset type values
 # Controls when a chore can be claimed/approved again after completion
@@ -2545,6 +2559,7 @@ ATTR_REWARD_CLAIM_RATE_MONTH: Final = "claim_rate_month"
 ATTR_START_DATE: Final = "start_date"
 ATTR_STREAKS_BY_ACHIEVEMENT: Final = "streaks_by_achievement"
 ATTR_COMPLETION_CRITERIA: Final = "completion_criteria"
+ATTR_ROTATION_FAIRNESS_BASIS: Final = "rotation_fairness_basis"
 ATTR_TARGET: Final = "target"
 ATTR_TARGET_VALUE: Final = "target_value"
 
@@ -2876,6 +2891,7 @@ SERVICE_FIELD_CHORE_CRUD_CUSTOM_INTERVAL: Final = "custom_interval"
 SERVICE_FIELD_CHORE_CRUD_CUSTOM_INTERVAL_UNIT: Final = "custom_interval_unit"
 SERVICE_FIELD_CHORE_CRUD_APPLICABLE_DAYS: Final = "applicable_days"
 SERVICE_FIELD_CHORE_CRUD_COMPLETION_CRITERIA: Final = "completion_criteria"
+SERVICE_FIELD_CHORE_CRUD_ROTATION_FAIRNESS_BASIS: Final = "rotation_fairness_basis"
 SERVICE_FIELD_CHORE_CRUD_APPROVAL_RESET: Final = "approval_reset_type"
 SERVICE_FIELD_CHORE_CRUD_PENDING_CLAIMS: Final = "pending_claims"
 SERVICE_FIELD_CHORE_CRUD_OVERDUE_HANDLING: Final = "overdue_handling"
@@ -3646,6 +3662,7 @@ TRANS_KEY_FLOW_HELPERS_APPROVAL_RESET_TYPE: Final = "approval_reset_type"
 TRANS_KEY_FLOW_HELPERS_ASSIGNED_USER_IDS: Final = "assigned_user_ids"
 TRANS_KEY_FLOW_HELPERS_CHORE_NOTIFICATIONS: Final = "chore_notifications"
 TRANS_KEY_FLOW_HELPERS_COMPLETION_CRITERIA: Final = "completion_criteria"
+TRANS_KEY_FLOW_HELPERS_ROTATION_FAIRNESS_BASIS: Final = "rotation_fairness_basis"
 TRANS_KEY_FLOW_HELPERS_ASSOCIATED_USER_IDS: Final = "associated_user_ids"
 TRANS_KEY_FLOW_HELPERS_CUSTOM_INTERVAL_UNIT: Final = "custom_interval_unit"
 TRANS_KEY_FLOW_HELPERS_OVERDUE_HANDLING_TYPE: Final = "overdue_handling_type"

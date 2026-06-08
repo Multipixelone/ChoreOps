@@ -1022,6 +1022,46 @@ class ChoreEngine:
         return sorted_assignees[0]
 
     @staticmethod
+    def calculate_next_turn_smart_weighted(
+        assigned_assignees: list[str],
+        completed_points: dict[str, float],
+        last_completed_timestamps: dict[str, str | None],
+    ) -> str:
+        """Calculate next turn for rotation_smart using points-weighted fairness.
+
+        Mirrors ``calculate_next_turn_smart`` but ranks by cumulative completed
+        points (difficulty-weighted) instead of raw completion count. Sorts by:
+        1. Ascending cumulative points (lowest accumulated load first)
+        2. Ascending last_completed timestamp (oldest work date first, None = never = first)
+        3. List-order position (tie-breaker)
+
+        Used when the chore's rotation_fairness_basis is weighted_points, so that
+        unequal-effort chores rotate by accumulated difficulty rather than raw count.
+
+        Args:
+            assigned_assignees: Ordered list of assignee UUIDs assigned to the chore
+            completed_points: Dict mapping assignee_id -> cumulative completed points
+            last_completed_timestamps: Dict mapping assignee_id -> last_completed ISO timestamp or None
+
+        Returns:
+            UUID of the assignee who should get the next turn
+        """
+        if not assigned_assignees:
+            # Should never happen, but defensive
+            return assigned_assignees[0] if assigned_assignees else ""
+
+        def sort_key(assignee_id: str) -> tuple[float, str, int]:
+            points = completed_points.get(assignee_id, 0.0)
+            timestamp = last_completed_timestamps.get(assignee_id)
+            # None sorts first (never completed)
+            timestamp_str = timestamp if timestamp is not None else ""
+            position = assigned_assignees.index(assignee_id)
+            return (points, timestamp_str, position)
+
+        sorted_assignees = sorted(assigned_assignees, key=sort_key)
+        return sorted_assignees[0]
+
+    @staticmethod
     def get_criteria_transition_actions(
         old_criteria: str,
         new_criteria: str,

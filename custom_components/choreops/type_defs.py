@@ -263,6 +263,9 @@ class ChoreData(TypedDict):
     rotation_cycle_override: NotRequired[
         bool
     ]  # Boolean: temp allow any assignee to claim (cleared on advancement)
+    rotation_fairness_basis: NotRequired[
+        str
+    ]  # completions (default) | weighted_points — only applies to rotation_smart
 
     # Claims restriction (v0.5.0 Chore Logic - blocks claims before due window)
     chore_claim_lock_until_window: NotRequired[bool]

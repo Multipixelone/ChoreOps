@@ -79,7 +79,7 @@ If you like this integration, the best (and free!) thing you can do is click the
 ### What ChoreOps can manage
 
 - **Profiles**: flexible roles for every approver and doer in your household
-- **Chores**: individual, shared, first-complete, and rotation models with advanced recurrence and overdue handling
+- **Chores**: individual, shared, first-complete, and rotation models with advanced recurrence, overdue handling, and smart rotation that balances turns by completion count or points-weighted fairness
 - **Points/XP**: use any home assistant icon and any term to configure the currency in your household
 - **Rewards**: claim-and-approve redemption workflows with automatic point accounting
 - **Badges**: cumulative rank-style systems and periodic quest-style systems with streaks and multipliers

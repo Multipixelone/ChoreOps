@@ -730,6 +730,7 @@ CHORE_ADVANCED_CONFIGURATION_FIELDS = (
     const.CFOF_CHORES_INPUT_APPROVAL_RESET_PENDING_CLAIM_ACTION,
     const.CFOF_CHORES_INPUT_AUTO_APPROVE,
     const.CFOF_CHORES_INPUT_OVERDUE_HANDLING_TYPE,
+    const.CFOF_CHORES_INPUT_ROTATION_FAIRNESS_BASIS,
     const.CFOF_CHORES_INPUT_DUE_REMINDER_OFFSET,
     const.CFOF_CHORES_INPUT_NOTIFICATIONS,
     const.CFOF_CHORES_INPUT_SHOW_ON_CALENDAR,
@@ -1055,6 +1056,22 @@ def build_chore_schema(
                     const.OVERDUE_HANDLING_TYPE_OPTIONS,
                 ),
                 translation_key=const.TRANS_KEY_FLOW_HELPERS_OVERDUE_HANDLING_TYPE,
+                mode=selector.SelectSelectorMode.DROPDOWN,
+            )
+        ),
+        vol.Required(
+            const.CFOF_CHORES_INPUT_ROTATION_FAIRNESS_BASIS,
+            default=default.get(
+                const.CFOF_CHORES_INPUT_ROTATION_FAIRNESS_BASIS,
+                const.DEFAULT_ROTATION_FAIRNESS_BASIS,
+            ),
+        ): selector.SelectSelector(
+            selector.SelectSelectorConfig(
+                options=cast(
+                    "list[selector.SelectOptionDict]",
+                    const.ROTATION_FAIRNESS_BASIS_OPTIONS,
+                ),
+                translation_key=const.TRANS_KEY_FLOW_HELPERS_ROTATION_FAIRNESS_BASIS,
                 mode=selector.SelectSelectorMode.DROPDOWN,
             )
         ),
@@ -1476,6 +1493,11 @@ def transform_chore_cfof_to_data(
             const.CFOF_CHORES_INPUT_OVERDUE_HANDLING_TYPE,
             const.DATA_CHORE_OVERDUE_HANDLING_TYPE,
             const.DEFAULT_OVERDUE_HANDLING_TYPE,
+        ),
+        const.DATA_CHORE_ROTATION_FAIRNESS_BASIS: _resolve_form_or_existing(
+            const.CFOF_CHORES_INPUT_ROTATION_FAIRNESS_BASIS,
+            const.DATA_CHORE_ROTATION_FAIRNESS_BASIS,
+            const.DEFAULT_ROTATION_FAIRNESS_BASIS,
         ),
         const.DATA_CHORE_APPROVAL_RESET_PENDING_CLAIM_ACTION: _resolve_form_or_existing(
             const.CFOF_CHORES_INPUT_APPROVAL_RESET_PENDING_CLAIM_ACTION,

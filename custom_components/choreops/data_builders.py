@@ -1870,6 +1870,10 @@ def build_chore(
             const.DATA_CHORE_ROTATION_CYCLE_OVERRIDE: get_field(
                 const.DATA_CHORE_ROTATION_CYCLE_OVERRIDE, False
             ),
+            const.DATA_CHORE_ROTATION_FAIRNESS_BASIS: get_field(
+                const.DATA_CHORE_ROTATION_FAIRNESS_BASIS,
+                const.DEFAULT_ROTATION_FAIRNESS_BASIS,
+            ),
         },
     )
 
@@ -1920,6 +1924,7 @@ _CHORE_DATA_RESET_PRESERVE_FIELDS: frozenset[str] = frozenset(
         const.DATA_CHORE_AUTO_APPROVE,
         # Completion criteria
         const.DATA_CHORE_COMPLETION_CRITERIA,
+        const.DATA_CHORE_ROTATION_FAIRNESS_BASIS,
     }
 )
 

@@ -3090,3 +3090,50 @@ class StatisticsManager(BaseManager):
             result,
         )
         return result
+
+    def get_total_completed_points(self, assignee_ids: list[str]) -> dict[str, float]:
+        """Get cross-chore all-time chore points totals across multiple assignees.
+
+        Used by ChoreManager._advance_rotation() for points-weighted smart
+        rotation fairness (rotation_fairness_basis == weighted_points). Returns
+        each assignee's cumulative all-time chore points summed across ALL chores,
+        from the aggregated chore_periods bucket. These are the points awarded for
+        chore completions (after any multipliers are applied), populated solely by
+        the CHORE_POINTS_AWARDED handler; rewards, bonuses, and penalties do not
+        contribute. Rotation is therefore weighted by accumulated chore points
+        earned rather than raw completion count.
+
+        Args:
+            assignee_ids: List of assignee internal IDs to query
+
+        Returns:
+            Dictionary mapping assignee_id -> all_time total chore points
+            Assignees with no recorded points return 0.0
+        """
+        result: dict[str, float] = {}
+
+        for assignee_id in assignee_ids:
+            assignee_info = self._get_assignee(assignee_id)
+            if not assignee_info:
+                result[assignee_id] = 0.0
+                continue
+
+            # Navigate to aggregated cross-chore period data
+            # (chore_periods["all_time"]["all_time"]["points"])
+            chore_periods = assignee_info.get(const.DATA_USER_CHORE_PERIODS, {})
+            all_time_container = chore_periods.get(
+                const.DATA_USER_CHORE_DATA_PERIODS_ALL_TIME, {}
+            )
+            all_time_data = all_time_container.get(const.PERIOD_ALL_TIME, {})
+
+            # Cumulative chore points awarded (after multipliers), across all chores
+            total_points = all_time_data.get(
+                const.DATA_USER_CHORE_DATA_PERIOD_POINTS, 0.0
+            )
+            result[assignee_id] = float(total_points)
+
+        const.LOGGER.debug(
+            "StatisticsManager.get_total_completed_points: results=%s",
+            result,
+        )
+        return result

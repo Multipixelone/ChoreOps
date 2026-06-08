@@ -4998,7 +4998,33 @@ class ChoreManager(BaseManager):
             # Smart rotation: fairness-weighted selection
             # Query StatisticsManager for completed counts and last completed timestamps
             # Phase 3 Step 8: Methods now implemented - smart rotation enabled
-            if hasattr(
+            fairness_basis = chore_data.get(
+                const.DATA_CHORE_ROTATION_FAIRNESS_BASIS,
+                const.DEFAULT_ROTATION_FAIRNESS_BASIS,
+            )
+            if (
+                fairness_basis == const.ROTATION_FAIRNESS_BASIS_WEIGHTED_POINTS
+                and hasattr(
+                    self.coordinator.statistics_manager, "get_total_completed_points"
+                )
+            ):
+                # Points-weighted fairness: lowest cumulative all-time chore points
+                # awarded (after multipliers), tie-broken by oldest last_completed on this chore
+                completed_points = (
+                    self.coordinator.statistics_manager.get_total_completed_points(
+                        assigned_assignees
+                    )
+                )
+                last_completed_timestamps = self.coordinator.statistics_manager.get_chore_last_completed_timestamps(
+                    chore_id, assigned_assignees
+                )
+
+                new_assignee_id = ChoreEngine.calculate_next_turn_smart_weighted(
+                    assigned_assignees=assigned_assignees,
+                    completed_points=completed_points,
+                    last_completed_timestamps=last_completed_timestamps,
+                )
+            elif hasattr(
                 self.coordinator.statistics_manager, "get_chore_completed_counts"
             ):
                 completed_counts = (
